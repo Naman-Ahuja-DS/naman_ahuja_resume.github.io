@@ -2,271 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of [Your Name], Data Scientist specializing in Machine Learning, FastAPI, and data visualization." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Portfolio of [Your Name], Data Scientist specializing in Machine Learning, FastAPI, and data-driven solutions." />
   <meta name="keywords" content="data science, machine learning, python, FastAPI, API, projects" />
-  <!-- Open Graph / Social Media -->
   <meta property="og:title" content="[Your Name] - Data Science Portfolio" />
-  <meta property="og:description" content="Check out my projects in ML and API development with FastAPI and Python." />
+  <meta property="og:description" content="Explore my projects in ML, APIs, and data visualization." />
   <meta property="og:image" content="assets/preview.png" />
   <meta property="og:url" content="https://yourportfolio.com" />
-  <title>[Your Name] - Data Science Portfolio</title>
-
-  <style>
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d1117 url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23161b22' fill-opacity='0.8' fill-rule='evenodd'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/svg%3E") repeat;
-      color: #e6edf3;
-      line-height: 1.7;
-      overflow-x: hidden;
-      transition: background-color 0.5s ease;
-    }
-
-    /* Skip Link for Accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 6px;
-      background: #00c6ff;
-      color: #0d1117;
-      padding: 8px;
-      border-radius: 6px;
-      text-decoration: none;
-      z-index: 1000;
-      font-weight: bold;
-    }
-    .skip-link:focus {
-      top: 10px;
-    }
-
-    /* Header */
-    header {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: linear-gradient(135deg, #1f2937, #111827);
-      animation: fadeIn 2s ease-in-out;
-    }
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #00c6ff;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
-    }
-    header h1 {
-      font-size: 2.8rem;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: textGlow 3s infinite alternate;
-      margin: 0;
-    }
-    header p {
-      color: #8b949e;
-      margin: 0.5rem 0 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #58a6ff;
-      position: relative;
-      font-size: 1.1rem;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: #58a6ff;
-      transition: width 0.3s ease;
-    }
-    nav a:hover::after,
-    nav a:focus::after {
-      width: 100%;
-      left: 0;
-      background: #00c6ff;
-    }
-
-    /* Main Content */
-    main {
-      min-height: 100vh;
-    }
-
-    section {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
-      animation: slideUp 1.5s ease;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-      display: inline-block;
-    }
-    section h2::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 4px;
-      left: 0;
-      bottom: -5px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      animation: expandLine 2s ease forwards;
-    }
-
-    /* Project Cards */
-    ul {
-      list-style: none;
-    }
-    ul li {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: #161b22;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeInUp 1s ease;
-    }
-    ul li:hover {
-      transform: translateY(-5px) scale(1.01);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    }
-    ul li h3 {
-      color: #58a6ff;
-      margin-bottom: 0.5rem;
-    }
-    ul li p {
-      color: #8b949e;
-      margin-bottom: 1rem;
-    }
-    ul li a {
-      color: #58a6ff;
-      text-decoration: none;
-      margin-right: 1rem;
-    }
-    ul li a:hover {
-      text-decoration: underline;
-    }
-
-    /* Skills Section */
-    .skills-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-      flex-wrap: wrap;
-    }
-    .skills-icons img {
-      filter: brightness(0.8) saturate(1.2);
-      transition: transform 0.3s ease;
-    }
-    .skills-icons img:hover {
-      transform: scale(1.1) translateY(-3px);
-    }
-
-    /* Contact */
-    #contact a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-    #contact a:hover {
-      text-decoration: underline;
-    }
-
-    /* Button */
-    .button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      color: #0d1117;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 198, 255, 0.3);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #111827;
-      animation: fadeIn 2s ease-in-out;
-      color: #8b949e;
-      font-size: 0.9rem;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes textGlow {
-      from { text-shadow: 0 0 10px #00c6ff, 0 0 20px #0072ff; }
-      to { text-shadow: 0 0 20px #00c6ff, 0 0 40px #0072ff; }
-    }
-    @keyframes expandLine {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      nav a {
-        margin: 0.7rem 0;
-      }
-      header h1 {
-        font-size: 2.2rem;
-      }
-      section {
-        padding: 2.5rem 1rem;
-      }
-      .profile-img {
-        width: 100px;
-        height: 100px;
-      }
-    }
-  </style>
+  <title>Naman Ahuja - Data Science Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
   <header>
     <img src="assets/profile.jpg" alt="Profile Photo of [Your Name]" class="profile-img" loading="lazy" />
-    <h1>Hi, I'm [Your Name]</h1>
-    <p>Data Scientist | Machine Learning | FastAPI Enthusiast</p>
+    <h1>Hi, I'm Naman Ahuja </h1>
+    <p>Data Scientist | Data Analytics</p>
     <nav aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -278,13 +30,16 @@
   <main id="main">
     <section id="about">
       <h2>About Me</h2>
-      <p>
-        I am a passionate data scientist with experience in building ML models,
-        APIs, and data-driven solutions. I enjoy solving real-world problems
-        using data, and I'm particularly interested in deploying models via FastAPI
-        and creating interactive dashboards.
-      </p>
-      <a href="assets/resume.pdf" download class="button">Download Resume</a>
+       <p>
+    I hold a bachelor’s degree in Economics, where I developed a strong foundation in analytical thinking, statistical modeling, and understanding complex systems. My academic journey sparked my curiosity in data-driven decision-making, leading me to pursue advanced studies in Data Science.
+  </p>
+    <p>
+        Currently, I am deepening my expertise in machine learning, Python, and data visualization through a dedicated Data Science program. I'm passionate about bridging the gap between economic theory and real-world data, using tools like Pandas, Scikit-learn, and FastAPI to build insightful and scalable solutions.
+    </p>
+    <p>
+        My goal is to leverage my dual background in economics and data science to solve meaningful business and social challenges — from forecasting market trends to optimizing data-driven policies.
+    </p>
+    <a href="assets/resume.pdf" download class="button">Download Resume</a>
     </section>
 
     <section id="projects">
@@ -302,7 +57,7 @@
           <a href="https://github.com/yourusername/viz-dashboard" target="_blank" rel="noopener">View Code</a>
         </li>
       </ul>
-      <p style="text-align: center; margin-top: 2rem;">
+      <p class="cta-text">
         <a href="#contact" class="button">Let's Work Together</a>
       </p>
     </section>
@@ -326,12 +81,12 @@
       <h2>Contact Me</h2>
       <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
       <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">linkedin.com/in/yourusername</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener">linkedin.com/in/yourusername</a></p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 [Your Name]. All rights reserved.</p>
+    <p>© 2025 Naman Ahuja. All rights reserved.</p>
   </footer>
 </body>
 </html>
