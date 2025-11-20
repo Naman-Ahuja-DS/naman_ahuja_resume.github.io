@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Ads Marketer | Lead Gen & Real Estate</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <script>
@@ -49,7 +46,7 @@
             color: #f8fafc;
             overflow-x: hidden;
         }
-        
+
         .glass-nav {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
@@ -82,6 +79,25 @@
             z-index: -1;
             opacity: 0.4;
         }
+
+        /* Success / Error Pop-up */
+        .popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            display: none;
+            z-index: 1000;
+        }
+        .popup.success {
+            background-color: #22c55e;
+            color: white;
+        }
+        .popup.error {
+            background-color: #ef4444;
+            color: white;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -92,7 +108,7 @@
                 <div class="text-2xl font-bold tracking-tighter text-white">
                     [NAME]<span class="text-blue-500">.ADS</span>
                 </div>
-                
+
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#about" class="text-slate-300 hover:text-white transition">About</a>
                     <a href="#experience" class="text-slate-300 hover:text-white transition">Experience</a>
@@ -129,16 +145,16 @@
             <div class="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-semibold tracking-wide" data-aos="fade-down">
                 AVAILABLE FOR NEW CLIENTS
             </div>
-            
+
             <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white" data-aos="fade-up" data-aos-delay="100">
                 Google Ads Marketer <br>
                 <span class="gradient-text">Lead Gen & Real Estate</span>
             </h1>
-            
+
             <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                 Transitioning high-volume Search Arbitrage tactics into profitable, scalable campaigns for real businesses.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
                 <a href="#contact" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-bold text-lg transition transform hover:scale-105 shadow-lg shadow-blue-500/40">
                     Hire Me
@@ -209,7 +225,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Skills</h2>
                 <p class="text-slate-400 mt-4">The toolkit I use to drive results.</p>
             </div>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="100">
                     <div class="text-4xl text-blue-500 mb-4"><i class="fab fa-google"></i></div>
@@ -238,7 +254,6 @@
             </div>
 
             <div class="relative border-l border-slate-700 ml-4 md:ml-0 space-y-12">
-                
                 <div class="relative md:pl-12 pl-8" data-aos="fade-right">
                     <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-slate-900"></div>
                     <h3 class="text-xl font-bold text-white">Google Ads Lead Gen Specialist</h3>
@@ -265,6 +280,7 @@
                         Managed high-volume traffic campaigns. Focus was purely on math: CPC vs. RPM. Gained mastery in negative keywords and aggressive bidding strategies.
                     </p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -352,7 +368,7 @@
                 </div>
 
                 <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
                         <i class="fas fa-ad text-4xl"></i>
                         <span class="ml-2">Ad Copy A/B Test</span>
                     </div>
@@ -362,7 +378,7 @@
                 </div>
 
                 <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
                         <i class="fas fa-file-invoice-dollar text-4xl"></i>
                         <span class="ml-2">Lead Cost Reduction</span>
                     </div>
@@ -383,25 +399,26 @@
                 Stop guessing with your ad budget. Get a performance-driven strategy audit today.
             </p>
 
-            <form class="max-w-md mx-auto space-y-4 text-left">
+            <form id="contactForm" action="https://formspree.io/f/mqanyrno" method="POST" class="max-w-md mx-auto space-y-4 text-left">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
                 <div>
                     <label class="text-sm text-slate-400 ml-1">Your Name</label>
-                    <input type="text" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="John Doe">
+                    <input type="text" name="name" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="John Doe" required>
                 </div>
                 <div>
                     <label class="text-sm text-slate-400 ml-1">Email Address</label>
-                    <input type="email" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
+                    <input type="email" name="email" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="john@example.com" required>
                 </div>
-                 <div>
+                <div>
                     <label class="text-sm text-slate-400 ml-1">Website (Optional)</label>
-                    <input type="text" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="www.yourbusiness.com">
+                    <input type="text" name="website" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="www.yourbusiness.com">
                 </div>
-                
-                <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg shadow-lg shadow-blue-500/40 transform transition hover:-translate-y-1">
+
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg shadow-lg shadow-blue-500/40 transform transition hover:-translate-y-1">
                     Send Message
                 </button>
             </form>
-            
+
             <div class="mt-8 flex justify-center space-x-6 text-slate-400">
                 <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-linkedin"></i></a>
                 <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-whatsapp"></i></a>
@@ -414,9 +431,11 @@
         <p>&copy; 2025 [Your Name]. Performance Marketing.</p>
     </footer>
 
+    <div id="popupSuccess" class="popup success">Thank you! Your message has been sent.</div>
+    <div id="popupError" class="popup error">Oops! Something went wrong. Try again.</div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animate On Scroll
         AOS.init({
             duration: 1000,
             once: true,
@@ -424,47 +443,43 @@
             easing: 'ease-out-cubic'
         });
 
-        // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
 
-        // Animated Counter Logic
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200; 
+        // Form submission logic
+        const form = document.getElementById('contactForm');
+        const popupSuccess = document.getElementById('popupSuccess');
+        const popupError = document.getElementById('popupError');
 
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const inc = target / speed;
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target + (target === 100 || target === 40 || target === 12 ? '%' : '+'); 
-                        // Small hack to append % or + based on context
-                        if(counter.parentElement.innerText.includes('CPC')) counter.innerText = target + '%';
-                        if(counter.parentElement.innerText.includes('CTR')) counter.innerText = target + '%';
-                        if(counter.parentElement.innerText.includes('Leads')) counter.innerText = target + '+';
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
                     }
-                };
-                updateCount();
-            });
-        }
+                });
 
-        // Trigger counters when scrolled into view
-        let hasAnimated = false;
-        window.addEventListener('scroll', () => {
-            const section = document.querySelector('.counter').getBoundingClientRect();
-            if(section.top < window.innerHeight && !hasAnimated) {
-                animateCounters();
-                hasAnimated = true;
+                if (response.ok) {
+                    popupSuccess.style.display = 'block';
+                    // Optionally redirect after delay:
+                    setTimeout(() => {
+                        window.location.href = form.querySelector('input[name="_next"]').value;
+                    }, 2000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                popupError.style.display = 'block';
+                console.error(error);
             }
         });
     </script>
