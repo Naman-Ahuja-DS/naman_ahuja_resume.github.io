@@ -1,475 +1,472 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Ads Marketer | Lead Gen & Real Estate</title>
-    
-    <!-- Tailwind CSS (CDN - KEPT HERE for simplicity) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom CSS Link (NEWLY ADDED) -->
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Marketer | Lead Gen & Real Estate</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Outfit', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            accent: '#3b82f6',
+                            glow: '#60a5fa',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    <script>
-        // Tailwind Configuration (KEPT HERE because it's JS, not CSS)
-        tailwind.config = {
-            theme: {
-                fontFamily: {
-                    sans: ['Outfit', 'sans-serif'],
-                },
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0f172a',
-                            accent: '#3b82f6',
-                            glow: '#60a5fa',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <style>
+        /* Custom Utilities */
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Floating Background Elements */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+    </style>
 </head>
 <body class="antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="text-2xl font-bold tracking-tighter text-white">
-                    [NAME]<span class="text-blue-500">.ADS</span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-slate-300 hover:text-white transition">About</a>
-                    <a href="#experience" class="text-slate-300 hover:text-white transition">Experience</a>
-                    <a href="#services" class="text-slate-300 hover:text-white transition">Services</a>
-                    <a href="#portfolio" class="text-slate-300 hover:text-white transition">Portfolio</a>
-                    <a href="#contact" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-semibold transition shadow-lg shadow-blue-500/30">
-                        Book Strategy Call
-                    </a>
-                </div>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="text-2xl font-bold tracking-tighter text-white">
+                    [NAME]<span class="text-blue-500">.ADS</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-slate-300 hover:text-white transition">About</a>
+                    <a href="#experience" class="text-slate-300 hover:text-white transition">Experience</a>
+                    <a href="#services" class="text-slate-300 hover:text-white transition">Services</a>
+                    <a href="#portfolio" class="text-slate-300 hover:text-white transition">Portfolio</a>
+                    <a href="#contact" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-semibold transition shadow-lg shadow-blue-500/30">
+                        Book Strategy Call
+                    </a>
+                </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 p-4">
-            <a href="#about" class="block py-2 text-slate-300">About</a>
-            <a href="#experience" class="block py-2 text-slate-300">Experience</a>
-            <a href="#services" class="block py-2 text-slate-300">Services</a>
-            <a href="#contact" class="block py-2 text-blue-400 font-bold">Book Call</a>
-        </div>
-    </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 p-4">
+            <a href="#about" class="block py-2 text-slate-300">About</a>
+            <a href="#experience" class="block py-2 text-slate-300">Experience</a>
+            <a href="#services" class="block py-2 text-slate-300">Services</a>
+            <a href="#contact" class="block py-2 text-blue-400 font-bold">Book Call</a>
+        </div>
+    </nav>
 
-    <!-- 1. Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Blobs -->
-        <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0 animate-pulse-slow"></div>
-        <div class="blob bg-purple-600 w-96 h-96 rounded-full bottom-0 right-0 animate-pulse-slow" style="animation-delay: 2s;"></div>
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0 animate-pulse-slow"></div>
+        <div class="blob bg-purple-600 w-96 h-96 rounded-full bottom-0 right-0 animate-pulse-slow" style="animation-delay: 2s;"></div>
 
-        <!-- Floating Icons Animation -->
-        <div class="absolute top-1/4 left-10 text-slate-700 text-6xl animate-float opacity-20"><i class="fas fa-chart-line"></i></div>
-        <div class="absolute bottom-1/3 right-10 text-slate-700 text-6xl animate-float opacity-20" style="animation-delay: 1.5s;"><i class="fas fa-bullseye"></i></div>
+        <div class="absolute top-1/4 left-10 text-slate-700 text-6xl animate-float opacity-20"><i class="fas fa-chart-line"></i></div>
+        <div class="absolute bottom-1/3 right-10 text-slate-700 text-6xl animate-float opacity-20" style="animation-delay: 1.5s;"><i class="fas fa-bullseye"></i></div>
 
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <div class="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-semibold tracking-wide" data-aos="fade-down">
-                AVAILABLE FOR NEW CLIENTS
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white" data-aos="fade-up" data-aos-delay="100">
-                Google Ads Marketer <br>
-                <span class="gradient-text">Lead Gen & Real Estate</span>
-            </h1>
-            
-            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-                Transitioning high-volume Search Arbitrage tactics into profitable, scalable campaigns for real businesses.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
-                <a href="#contact" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-bold text-lg transition transform hover:scale-105 shadow-lg shadow-blue-500/40">
-                    Hire Me
-                </a>
-                <a href="#contact" class="px-8 py-4 border border-slate-600 hover:border-white rounded-lg text-white font-bold text-lg transition hover:bg-white/5">
-                    Book Strategy Call
-                </a>
-            </div>
-        </div>
-    </section>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-sm font-semibold tracking-wide" data-aos="fade-down">
+                AVAILABLE FOR NEW CLIENTS
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-white" data-aos="fade-up" data-aos-delay="100">
+                Google Ads Marketer <br>
+                <span class="gradient-text">Lead Gen & Real Estate</span>
+            </h1>
+            
+            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Transitioning high-volume Search Arbitrage tactics into profitable, scalable campaigns for real businesses.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="300">
+                <a href="#contact" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-bold text-lg transition transform hover:scale-105 shadow-lg shadow-blue-500/40">
+                    Hire Me
+                </a>
+                <a href="#contact" class="px-8 py-4 border border-slate-600 hover:border-white rounded-lg text-white font-bold text-lg transition hover:bg-white/5">
+                    Book Strategy Call
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- 2. About Me (The Pivot Story) -->
-    <section id="about" class="py-24 bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Image/Visual -->
-                <div class="relative" data-aos="fade-right">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 opacity-30"></div>
-                    <div class="relative bg-slate-900 p-8 rounded-2xl border border-slate-700 shadow-2xl">
-                        <!-- Replace with your image: <img src="images/profile.jpg" alt="[Your Name]" class="rounded-lg mb-4"> -->
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center border-b border-slate-700 pb-2">
-                                <span class="text-sm text-slate-400">Campaign</span>
-                                <span class="text-sm text-green-400 font-mono">Active ●</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">CTR</span>
-                                <span class="text-white font-bold">14.2%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                                <div class="bg-blue-500 h-full w-[85%]"></div>
-                            </div>
-                            <div class="flex justify-between">
-                                <span class="text-slate-400">Conversion Rate</span>
-                                <span class="text-white font-bold">8.5%</span>
-                            </div>
-                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
-                                <div class="bg-purple-500 h-full w-[60%]"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section id="about" class="py-24 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 opacity-30"></div>
+                    <div class="relative bg-slate-900 p-8 rounded-2xl border border-slate-700 shadow-2xl">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                                <span class="text-sm text-slate-400">Campaign</span>
+                                <span class="text-sm text-green-400 font-mono">Active ●</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">CTR</span>
+                                <span class="text-white font-bold">14.2%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-blue-500 h-full w-[85%]"></div>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Conversion Rate</span>
+                                <span class="text-white font-bold">8.5%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-purple-500 h-full w-[60%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Content -->
-                <div data-aos="fade-left">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">From Arbitrage to <span class="text-blue-500">Business Growth</span></h2>
-                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
-                        I didn't start in a traditional agency. I started in the trenches of <strong>Search Arbitrage</strong>, where I managed ad spend with my own money. This environment taught me to treat every click like an investment.
-                    </p>
-                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
-                        Now, I apply that same ruthless efficiency—lowering CPCs, maximizing CTR, and obsessing over Quality Score—to help <strong>Real Estate Agents</strong> and <strong>Local Businesses</strong> generate high-quality leads.
-                    </p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-slate-300">
-                            <i class="fas fa-check-circle text-blue-500 mr-3"></i> Expert in High-Intent Keyword Research
-                        </li>
-                        <li class="flex items-center text-slate-300">
-                            <i class="fas fa-check-circle text-blue-500 mr-3"></i> Landing Page Conversion Optimization
-                        </li>
-                        <li class="flex items-center text-slate-300">
-                            <i class="fas fa-check-circle text-blue-500 mr-3"></i> Ruthless Negative Keyword Filtering
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">From Arbitrage to <span class="text-blue-500">Business Growth</span></h2>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        I didn't start in a traditional agency. I started in the trenches of <strong>Search Arbitrage</strong>, where I managed ad spend with my own money. This environment taught me to treat every click like an investment.
+                    </p>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        Now, I apply that same ruthless efficiency—lowering CPCs, maximizing CTR, and obsessing over Quality Score—to help <strong>Real Estate Agents</strong> and <strong>Local Businesses</strong> generate high-quality leads.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-300">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i> Expert in High-Intent Keyword Research
+                        </li>
+                        <li class="flex items-center text-slate-300">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i> Landing Page Conversion Optimization
+                        </li>
+                        <li class="flex items-center text-slate-300">
+                            <i class="fas fa-check-circle text-blue-500 mr-3"></i> Ruthless Negative Keyword Filtering
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 3. Skills Grid -->
-    <section class="py-24 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Skills</h2>
-                <p class="text-slate-400 mt-4">The toolkit I use to drive results.</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Skill 1 -->
-                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-4xl text-blue-500 mb-4 transition group-hover:scale-110"><i class="fab fa-google"></i></div>
-                    <h3 class="text-white font-bold">Google Ads</h3>
-                </div>
-                <!-- Skill 2 -->
-                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-4xl text-green-500 mb-4 transition group-hover:scale-110"><i class="fas fa-filter"></i></div>
-                    <h3 class="text-white font-bold">Funnel Setup</h3>
-                </div>
-                <!-- Skill 3 -->
-                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="text-4xl text-purple-500 mb-4 transition group-hover:scale-110"><i class="fas fa-home"></i></div>
-                    <h3 class="text-white font-bold">Real Estate Ads</h3>
-                </div>
-                <!-- Skill 4 -->
-                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="text-4xl text-yellow-500 mb-4 transition group-hover:scale-110"><i class="fas fa-calculator"></i></div>
-                    <h3 class="text-white font-bold">CPC Audits</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Technical Skills</h2>
+                <p class="text-slate-400 mt-4">The toolkit I use to drive results.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl text-blue-500 mb-4"><i class="fab fa-google"></i></div>
+                    <h3 class="text-white font-bold">Google Ads</h3>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl text-green-500 mb-4"><i class="fas fa-filter"></i></div>
+                    <h3 class="text-white font-bold">Funnel Setup</h3>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl text-purple-500 mb-4"><i class="fas fa-home"></i></div>
+                    <h3 class="text-white font-bold">Real Estate Ads</h3>
+                </div>
+                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-4xl text-yellow-500 mb-4"><i class="fas fa-calculator"></i></div>
+                    <h3 class="text-white font-bold">CPC Audits</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 4. Experience Timeline -->
-    <section id="experience" class="py-24 bg-slate-800/50">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">My Journey</h2>
-            </div>
+    <section id="experience" class="py-24 bg-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">My Journey</h2>
+            </div>
 
-            <div class="relative border-l border-slate-700 ml-4 md:ml-0 space-y-12">
-                
-                <!-- Current Role -->
-                <div class="relative md:pl-12 pl-8 timeline-item" data-aos="fade-right">
-                    <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-slate-900 glow-dot"></div>
-                    <h3 class="text-xl font-bold text-white">Google Ads Lead Gen Specialist</h3>
-                    <span class="text-blue-400 text-sm font-mono">Current</span>
-                    <p class="text-slate-400 mt-2">
-                        Helping Real Estate agents and local businesses capture high-intent leads. Implementing "Phrase Match" strategies and building dedicated landing pages to lower Cost Per Lead (CPL).
-                    </p>
-                </div>
+            <div class="relative border-l border-slate-700 ml-4 md:ml-0 space-y-12">
+                
+                <div class="relative md:pl-12 pl-8" data-aos="fade-right">
+                    <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-slate-900"></div>
+                    <h3 class="text-xl font-bold text-white">Google Ads Lead Gen Specialist</h3>
+                    <span class="text-blue-400 text-sm font-mono">Current</span>
+                    <p class="text-slate-400 mt-2">
+                        Helping Real Estate agents and local businesses capture high-intent leads. Implementing "Phrase Match" strategies and building dedicated landing pages to lower Cost Per Lead (CPL).
+                    </p>
+                </div>
 
-                <!-- Pivot Point -->
-                <div class="relative md:pl-12 pl-8 timeline-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="absolute -left-3 top-0 bg-purple-500 w-6 h-6 rounded-full border-4 border-slate-900 glow-dot"></div>
-                    <h3 class="text-xl font-bold text-white">The Pivot: Applying Arbitrage Logic</h3>
-                    <span class="text-purple-400 text-sm font-mono">Transitional Phase</span>
-                    <p class="text-slate-400 mt-2">
-                        Refined my skills in Quality Score manipulation and ad copy testing. Learned to scale campaigns profitably without wasting budget on low-relevance clicks.
-                    </p>
-                </div>
+                <div class="relative md:pl-12 pl-8" data-aos="fade-right" data-aos-delay="100">
+                    <div class="absolute -left-3 top-0 bg-purple-500 w-6 h-6 rounded-full border-4 border-slate-900"></div>
+                    <h3 class="text-xl font-bold text-white">The Pivot: Applying Arbitrage Logic</h3>
+                    <span class="text-purple-400 text-sm font-mono">Transitional Phase</span>
+                    <p class="text-slate-400 mt-2">
+                        Refined my skills in Quality Score manipulation and ad copy testing. Learned to scale campaigns profitably without wasting budget on low-relevance clicks.
+                    </p>
+                </div>
 
-                <!-- Previous Role -->
-                <div class="relative md:pl-12 pl-8 timeline-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="absolute -left-3 top-0 bg-slate-600 w-6 h-6 rounded-full border-4 border-slate-900 glow-dot"></div>
-                    <h3 class="text-xl font-bold text-white">Search Arbitrage Specialist</h3>
-                    <span class="text-slate-500 text-sm font-mono">Past Experience</span>
-                    <p class="text-slate-400 mt-2">
-                        Managed high-volume traffic campaigns. Focus was purely on math: CPC vs. RPM. Gained mastery in negative keywords and aggressive bidding strategies.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="relative md:pl-12 pl-8" data-aos="fade-right" data-aos-delay="200">
+                    <div class="absolute -left-3 top-0 bg-slate-600 w-6 h-6 rounded-full border-4 border-slate-900"></div>
+                    <h3 class="text-xl font-bold text-white">Search Arbitrage Specialist</h3>
+                    <span class="text-slate-500 text-sm font-mono">Past Experience</span>
+                    <p class="text-slate-400 mt-2">
+                        Managed high-volume traffic campaigns. Focus was purely on math: CPC vs. RPM. Gained mastery in negative keywords and aggressive bidding strategies.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 6. Case Study Stats (Animated) -->
-    <section class="py-20 bg-blue-900/20 border-y border-slate-800">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="fade-up">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="40">0</div>
-                    <div class="text-blue-400 text-sm uppercase tracking-wider">% Avg CPC Drop</div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="12">0</div>
-                    <div class="text-blue-400 text-sm uppercase tracking-wider">% Avg CTR</div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="1000">0</div>
-                    <div class="text-blue-400 text-sm uppercase tracking-wider">+ Leads Generated</div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="100">0</div>
-                    <div class="text-blue-400 text-sm uppercase tracking-wider">% Data Driven</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="py-20 bg-blue-900/20 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div data-aos="fade-up">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="40">0</div>
+                    <div class="text-blue-400 text-sm uppercase tracking-wider">% Avg CPC Drop</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="12">0</div>
+                    <div class="text-blue-400 text-sm uppercase tracking-wider">% Avg CTR</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="1000">0</div>
+                    <div class="text-blue-400 text-sm uppercase tracking-wider">+ Leads Generated</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl md:text-5xl font-bold text-white mb-2 counter" data-target="100">0</div>
+                    <div class="text-blue-400 text-sm uppercase tracking-wider">% Data Driven</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 5. Services (Card Flip/Lift Effect) -->
-    <section id="services" class="py-24 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Services</h2>
-                <p class="text-slate-400 mt-4">Specialized packages for growth.</p>
-            </div>
+    <section id="services" class="py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Services</h2>
+                <p class="text-slate-400 mt-4">Specialized packages for growth.</p>
+            </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass-card p-8 rounded-2xl group service-card" data-aos="flip-left">
-                    <div class="w-14 h-14 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500 transition duration-300">
-                        <i class="fas fa-search-dollar text-2xl text-blue-400 group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Google Ads Setup</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Complete account build-out. I structure campaigns using SKAGs (Single Keyword Ad Groups) or Theme-based Ad Groups for maximum relevance.
-                    </p>
-                </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl group" data-aos="flip-left">
+                    <div class="w-14 h-14 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500 transition duration-300">
+                        <i class="fas fa-search-dollar text-2xl text-blue-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Google Ads Setup</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Complete account build-out. I structure campaigns using SKAGs (Single Keyword Ad Groups) or Theme-based Ad Groups for maximum relevance.
+                    </p>
+                </div>
 
-                <!-- Service 2 -->
-                <div class="glass-card p-8 rounded-2xl group service-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-green-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-500 transition duration-300">
-                        <i class="fas fa-home text-2xl text-green-400 group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Real Estate Leads</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Target "Buyer Intent" keywords (e.g., "Homes for sale in [City]") to get you leads who are actually ready to transact, not just window shoppers.
-                    </p>
-                </div>
+                <div class="glass-card p-8 rounded-2xl group" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-green-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-500 transition duration-300">
+                        <i class="fas fa-home text-2xl text-green-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Real Estate Leads</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Target "Buyer Intent" keywords (e.g., "Homes for sale in [City]") to get you leads who are actually ready to transact, not just window shoppers.
+                    </p>
+                </div>
 
-                <!-- Service 3 -->
-                <div class="glass-card p-8 rounded-2xl group service-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500 transition duration-300">
-                        <i class="fas fa-stethoscope text-2xl text-purple-400 group-hover:text-white"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Account Audit</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        I will find your wasted spend. I analyze your Search Terms report and Negative Keyword lists to cut costs immediately.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="glass-card p-8 rounded-2xl group" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500 transition duration-300">
+                        <i class="fas fa-stethoscope text-2xl text-purple-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Account Audit</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        I will find your wasted spend. I analyze your Search Terms report and Negative Keyword lists to cut costs immediately.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 8. Portfolio Gallery -->
-    <section id="portfolio" class="py-24 bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Work Samples</h2>
-                <p class="text-slate-400 mt-2">Snippets of data visualization and ad copy.</p>
-            </div>
+    <section id="portfolio" class="py-24 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Work Samples</h2>
+                <p class="text-slate-400 mt-2">Snippets of data visualization and ad copy.</p>
+            </div>
 
-            <!-- Masonry Grid -->
-            <div class="grid md:grid-cols-3 gap-4">
-                <!-- Item 1: Assuming you have images/screenshot1.png -->
-                <div class="group relative overflow-hidden rounded-xl aspect-video bg-cover bg-center cursor-pointer portfolio-item" 
-                    style="background-image: url('images/screenshot1.png');" 
-                    data-aos="fade-up">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold border border-white px-4 py-2 rounded">High CTR Data</span>
-                    </div>
-                </div>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up">
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
+                        <i class="fas fa-chart-bar text-4xl"></i>
+                        <span class="ml-2">High CTR Data</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded">View Metrics</span>
+                    </div>
+                </div>
 
-                <!-- Item 2: Assuming you have images/screenshot2.png -->
-                <div class="group relative overflow-hidden rounded-xl aspect-video bg-cover bg-center cursor-pointer portfolio-item" 
-                    style="background-image: url('images/screenshot2.png');" 
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold border border-white px-4 py-2 rounded">Ad Copy A/B Test</span>
-                    </div>
-                </div>
+                <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                     <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
+                        <i class="fas fa-ad text-4xl"></i>
+                        <span class="ml-2">Ad Copy A/B Test</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded">View Metrics</span>
+                    </div>
+                </div>
 
-                <!-- Item 3: Assuming you have images/screenshot3.png -->
-                <div class="group relative overflow-hidden rounded-xl aspect-video bg-cover bg-center cursor-pointer portfolio-item" 
-                    style="background-image: url('images/screenshot3.png');" 
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold border border-white px-4 py-2 rounded">Lead Cost Reduction</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                     <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
+                        <i class="fas fa-file-invoice-dollar text-4xl"></i>
+                        <span class="ml-2">Lead Cost Reduction</span>
+                    </div>
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded">View Metrics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- 10. Contact / Final CTA -->
-    <section id="contact" class="py-24 px-4 relative overflow-hidden">
-        <!-- Glow effect -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full -z-10"></div>
+    <section id="contact" class="py-24 px-4 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full -z-10"></div>
 
-        <div class="max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-3xl text-center border border-blue-500/30" data-aos="zoom-in">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Let's Scale Your Business</h2>
-            <p class="text-xl text-slate-300 mb-10">
-                Stop guessing with your ad budget. Get a performance-driven strategy audit today.
-            </p>
+        <div class="max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-3xl text-center border border-blue-500/30" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Let's Scale Your Business</h2>
+            <p class="text-xl text-slate-300 mb-10">
+                Stop guessing with your ad budget. Get a performance-driven strategy audit today.
+            </p>
 
-            <!-- IMPORTANT: Replace YOUR_FORMSPREE_ENDPOINT_URL with your actual Formspree link -->
-            <form class="max-w-md mx-auto space-y-4 text-left" 
-                  action="YOUR_FORMSPREE_ENDPOINT_URL"
-                  method="POST">
-                <div>
-                    <label class="text-sm text-slate-400 ml-1">Your Name</label>
-                    <input type="text" name="name" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="text-sm text-slate-400 ml-1">Email Address</label>
-                    <input type="email" name="_replyto" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
-                </div>
-                 <div>
-                    <label class="text-sm text-slate-400 ml-1">Website (Optional)</label>
-                    <input type="text" name="website" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-500 outline-none transition" placeholder="www.yourbusiness.com">
-                </div>
-                
-                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg shadow-lg shadow-blue-500/40 transform transition hover:-translate-y-1">
-                    Send Message
-                </button>
-            </form>
-            
-            <div class="mt-8 flex justify-center space-x-6 text-slate-400">
-                <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" class="hover:text-white transition text-2xl"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </section>
+            <form class="max-w-md mx-auto space-y-4 text-left">
+                <div>
+                    <label class="text-sm text-slate-400 ml-1">Your Name</label>
+                    <input type="text" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="text-sm text-slate-400 ml-1">Email Address</label>
+                    <input type="email" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
+                </div>
+                 <div>
+                    <label class="text-sm text-slate-400 ml-1">Website (Optional)</label>
+                    <input type="text" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="www.yourbusiness.com">
+                </div>
+                
+                <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg shadow-lg shadow-blue-500/40 transform transition hover:-translate-y-1">
+                    Send Message
+                </button>
+            </form>
+            
+            <div class="mt-8 flex justify-center space-x-6 text-slate-400">
+                <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="hover:text-white transition text-2xl"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center border-t border-slate-800 text-slate-500 text-sm">
-        <p>&copy; 2025 [Your Name]. Performance Marketing.</p>
-    </footer>
+    <footer class="py-8 text-center border-t border-slate-800 text-slate-500 text-sm">
+        <p>&copy; 2025 [Your Name]. Performance Marketing.</p>
+    </footer>
 
-    <!-- Scripts (KEPT HERE because they interact with the DOM) -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize Animate On Scroll
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animate On Scroll
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
 
-        // Mobile Menu Toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
 
-        // Animated Counter Logic
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200; 
+        // Animated Counter Logic
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; 
 
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const inc = target / speed;
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
 
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
-                    } else {
-                        // Small hack to append % or + based on context
-                        let suffix = '';
-                        if(counter.parentElement.innerText.includes('CPC')) suffix = '%';
-                        else if(counter.parentElement.innerText.includes('CTR')) suffix = '%';
-                        else if(counter.parentElement.innerText.includes('Leads')) suffix = '+';
-                        else if(target === 100) suffix = '%'; // for the "Data Driven" stat
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target + (target === 100 || target === 40 || target === 12 ? '%' : '+'); 
+                        // Small hack to append % or + based on context
+                        if(counter.parentElement.innerText.includes('CPC')) counter.innerText = target + '%';
+                        if(counter.parentElement.innerText.includes('CTR')) counter.innerText = target + '%';
+                        if(counter.parentElement.innerText.includes('Leads')) counter.innerText = target + '+';
+                    }
+                };
+                updateCount();
+            });
+        }
 
-                        counter.innerText = target + suffix;
-                    }
-                };
-                updateCount();
-            });
-        }
-
-        // Trigger counters when scrolled into view
-        let hasAnimated = false;
-        window.addEventListener('scroll', () => {
-            const counterSection = document.querySelector('.counter')?.closest('section');
-            if (counterSection) {
-                const sectionRect = counterSection.getBoundingClientRect();
-                if(sectionRect.top < window.innerHeight - 100 && !hasAnimated) {
-                    animateCounters();
-                    hasAnimated = true;
-                }
-            }
-        });
-    </script>
+        // Trigger counters when scrolled into view
+        let hasAnimated = false;
+        window.addEventListener('scroll', () => {
+            const section = document.querySelector('.counter').getBoundingClientRect();
+            if(section.top < window.innerHeight && !hasAnimated) {
+                animateCounters();
+                hasAnimated = true;
+            }
+        });
+    </script>
 </body>
 </html>
