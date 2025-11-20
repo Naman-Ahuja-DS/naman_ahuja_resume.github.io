@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Ads Marketer | Lead Gen & Real Estate</title>
     
+    <!-- Tailwind CSS (CDN - KEPT HERE for simplicity) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Custom CSS Link (NEWLY ADDED) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Custom Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <script>
+        // Tailwind Configuration (KEPT HERE because it's JS, not CSS)
         tailwind.config = {
             theme: {
                 fontFamily: {
@@ -41,51 +49,10 @@
             }
         }
     </script>
-
-    <style>
-        /* Custom Utilities */
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            overflow-x: hidden;
-        }
-        
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.3);
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Floating Background Elements */
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            z-index: -1;
-            opacity: 0.4;
-        }
-    </style>
 </head>
 <body class="antialiased">
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
@@ -93,6 +60,7 @@
                     [NAME]<span class="text-blue-500">.ADS</span>
                 </div>
                 
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#about" class="text-slate-300 hover:text-white transition">About</a>
                     <a href="#experience" class="text-slate-300 hover:text-white transition">Experience</a>
@@ -103,6 +71,7 @@
                     </a>
                 </div>
 
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-white focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
@@ -110,6 +79,7 @@
                 </div>
             </div>
         </div>
+        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 p-4">
             <a href="#about" class="block py-2 text-slate-300">About</a>
             <a href="#experience" class="block py-2 text-slate-300">Experience</a>
@@ -118,10 +88,13 @@
         </div>
     </nav>
 
+    <!-- 1. Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Blobs -->
         <div class="blob bg-blue-600 w-96 h-96 rounded-full top-0 left-0 animate-pulse-slow"></div>
         <div class="blob bg-purple-600 w-96 h-96 rounded-full bottom-0 right-0 animate-pulse-slow" style="animation-delay: 2s;"></div>
 
+        <!-- Floating Icons Animation -->
         <div class="absolute top-1/4 left-10 text-slate-700 text-6xl animate-float opacity-20"><i class="fas fa-chart-line"></i></div>
         <div class="absolute bottom-1/3 right-10 text-slate-700 text-6xl animate-float opacity-20" style="animation-delay: 1.5s;"><i class="fas fa-bullseye"></i></div>
 
@@ -150,12 +123,15 @@
         </div>
     </section>
 
+    <!-- 2. About Me (The Pivot Story) -->
     <section id="about" class="py-24 bg-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Image/Visual -->
                 <div class="relative" data-aos="fade-right">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 opacity-30"></div>
                     <div class="relative bg-slate-900 p-8 rounded-2xl border border-slate-700 shadow-2xl">
+                        <!-- Replace with your image: <img src="images/profile.jpg" alt="[Your Name]" class="rounded-lg mb-4"> -->
                         <div class="space-y-4">
                             <div class="flex justify-between items-center border-b border-slate-700 pb-2">
                                 <span class="text-sm text-slate-400">Campaign</span>
@@ -179,6 +155,7 @@
                     </div>
                 </div>
 
+                <!-- Content -->
                 <div data-aos="fade-left">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">From Arbitrage to <span class="text-blue-500">Business Growth</span></h2>
                     <p class="text-slate-400 text-lg mb-6 leading-relaxed">
@@ -203,6 +180,7 @@
         </div>
     </section>
 
+    <!-- 3. Skills Grid -->
     <section class="py-24 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -211,26 +189,31 @@
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-4xl text-blue-500 mb-4"><i class="fab fa-google"></i></div>
+                <!-- Skill 1 -->
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl text-blue-500 mb-4 transition group-hover:scale-110"><i class="fab fa-google"></i></div>
                     <h3 class="text-white font-bold">Google Ads</h3>
                 </div>
-                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-4xl text-green-500 mb-4"><i class="fas fa-filter"></i></div>
+                <!-- Skill 2 -->
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl text-green-500 mb-4 transition group-hover:scale-110"><i class="fas fa-filter"></i></div>
                     <h3 class="text-white font-bold">Funnel Setup</h3>
                 </div>
-                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="text-4xl text-purple-500 mb-4"><i class="fas fa-home"></i></div>
+                <!-- Skill 3 -->
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl text-purple-500 mb-4 transition group-hover:scale-110"><i class="fas fa-home"></i></div>
                     <h3 class="text-white font-bold">Real Estate Ads</h3>
                 </div>
-                <div class="glass-card p-6 rounded-xl text-center" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="text-4xl text-yellow-500 mb-4"><i class="fas fa-calculator"></i></div>
+                <!-- Skill 4 -->
+                <div class="glass-card p-6 rounded-xl text-center group" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-4xl text-yellow-500 mb-4 transition group-hover:scale-110"><i class="fas fa-calculator"></i></div>
                     <h3 class="text-white font-bold">CPC Audits</h3>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 4. Experience Timeline -->
     <section id="experience" class="py-24 bg-slate-800/50">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -239,8 +222,9 @@
 
             <div class="relative border-l border-slate-700 ml-4 md:ml-0 space-y-12">
                 
-                <div class="relative md:pl-12 pl-8" data-aos="fade-right">
-                    <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-slate-900"></div>
+                <!-- Current Role -->
+                <div class="relative md:pl-12 pl-8 timeline-item" data-aos="fade-right">
+                    <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-slate-900 glow-dot"></div>
                     <h3 class="text-xl font-bold text-white">Google Ads Lead Gen Specialist</h3>
                     <span class="text-blue-400 text-sm font-mono">Current</span>
                     <p class="text-slate-400 mt-2">
@@ -248,8 +232,9 @@
                     </p>
                 </div>
 
-                <div class="relative md:pl-12 pl-8" data-aos="fade-right" data-aos-delay="100">
-                    <div class="absolute -left-3 top-0 bg-purple-500 w-6 h-6 rounded-full border-4 border-slate-900"></div>
+                <!-- Pivot Point -->
+                <div class="relative md:pl-12 pl-8 timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="absolute -left-3 top-0 bg-purple-500 w-6 h-6 rounded-full border-4 border-slate-900 glow-dot"></div>
                     <h3 class="text-xl font-bold text-white">The Pivot: Applying Arbitrage Logic</h3>
                     <span class="text-purple-400 text-sm font-mono">Transitional Phase</span>
                     <p class="text-slate-400 mt-2">
@@ -257,8 +242,9 @@
                     </p>
                 </div>
 
-                <div class="relative md:pl-12 pl-8" data-aos="fade-right" data-aos-delay="200">
-                    <div class="absolute -left-3 top-0 bg-slate-600 w-6 h-6 rounded-full border-4 border-slate-900"></div>
+                <!-- Previous Role -->
+                <div class="relative md:pl-12 pl-8 timeline-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="absolute -left-3 top-0 bg-slate-600 w-6 h-6 rounded-full border-4 border-slate-900 glow-dot"></div>
                     <h3 class="text-xl font-bold text-white">Search Arbitrage Specialist</h3>
                     <span class="text-slate-500 text-sm font-mono">Past Experience</span>
                     <p class="text-slate-400 mt-2">
@@ -269,6 +255,7 @@
         </div>
     </section>
 
+    <!-- 6. Case Study Stats (Animated) -->
     <section class="py-20 bg-blue-900/20 border-y border-slate-800">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -292,6 +279,7 @@
         </div>
     </section>
 
+    <!-- 5. Services (Card Flip/Lift Effect) -->
     <section id="services" class="py-24 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
@@ -300,7 +288,8 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl group" data-aos="flip-left">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-2xl group service-card" data-aos="flip-left">
                     <div class="w-14 h-14 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500 transition duration-300">
                         <i class="fas fa-search-dollar text-2xl text-blue-400 group-hover:text-white"></i>
                     </div>
@@ -310,7 +299,8 @@
                     </p>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl group" data-aos="flip-left" data-aos-delay="100">
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-2xl group service-card" data-aos="flip-left" data-aos-delay="100">
                     <div class="w-14 h-14 bg-green-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-500 transition duration-300">
                         <i class="fas fa-home text-2xl text-green-400 group-hover:text-white"></i>
                     </div>
@@ -320,7 +310,8 @@
                     </p>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl group" data-aos="flip-left" data-aos-delay="200">
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-2xl group service-card" data-aos="flip-left" data-aos-delay="200">
                     <div class="w-14 h-14 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-500 transition duration-300">
                         <i class="fas fa-stethoscope text-2xl text-purple-400 group-hover:text-white"></i>
                     </div>
@@ -333,6 +324,7 @@
         </div>
     </section>
 
+    <!-- 8. Portfolio Gallery -->
     <section id="portfolio" class="py-24 bg-slate-800/50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -340,41 +332,41 @@
                 <p class="text-slate-400 mt-2">Snippets of data visualization and ad copy.</p>
             </div>
 
+            <!-- Masonry Grid -->
             <div class="grid md:grid-cols-3 gap-4">
-                <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up">
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
-                        <i class="fas fa-chart-bar text-4xl"></i>
-                        <span class="ml-2">High CTR Data</span>
-                    </div>
+                <!-- Item 1: Assuming you have images/screenshot1.png -->
+                <div class="group relative overflow-hidden rounded-xl aspect-video bg-cover bg-center cursor-pointer portfolio-item" 
+                    style="background-image: url('images/screenshot1.png');" 
+                    data-aos="fade-up">
                     <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold border border-white px-4 py-2 rounded">View Metrics</span>
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded">High CTR Data</span>
                     </div>
                 </div>
 
-                <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
-                        <i class="fas fa-ad text-4xl"></i>
-                        <span class="ml-2">Ad Copy A/B Test</span>
-                    </div>
+                <!-- Item 2: Assuming you have images/screenshot2.png -->
+                <div class="group relative overflow-hidden rounded-xl aspect-video bg-cover bg-center cursor-pointer portfolio-item" 
+                    style="background-image: url('images/screenshot2.png');" 
+                    data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold border border-white px-4 py-2 rounded">View Metrics</span>
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded">Ad Copy A/B Test</span>
                     </div>
                 </div>
 
-                <div class="group relative overflow-hidden rounded-xl aspect-video bg-slate-700 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                     <div class="absolute inset-0 flex items-center justify-center text-slate-500 bg-slate-800 group-hover:scale-105 transition duration-500">
-                        <i class="fas fa-file-invoice-dollar text-4xl"></i>
-                        <span class="ml-2">Lead Cost Reduction</span>
-                    </div>
+                <!-- Item 3: Assuming you have images/screenshot3.png -->
+                <div class="group relative overflow-hidden rounded-xl aspect-video bg-cover bg-center cursor-pointer portfolio-item" 
+                    style="background-image: url('images/screenshot3.png');" 
+                    data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold border border-white px-4 py-2 rounded">View Metrics</span>
+                        <span class="text-white font-bold border border-white px-4 py-2 rounded">Lead Cost Reduction</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 10. Contact / Final CTA -->
     <section id="contact" class="py-24 px-4 relative overflow-hidden">
+        <!-- Glow effect -->
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full -z-10"></div>
 
         <div class="max-w-3xl mx-auto glass-card p-8 md:p-12 rounded-3xl text-center border border-blue-500/30" data-aos="zoom-in">
@@ -383,21 +375,24 @@
                 Stop guessing with your ad budget. Get a performance-driven strategy audit today.
             </p>
 
-            <form class="max-w-md mx-auto space-y-4 text-left">
+            <!-- IMPORTANT: Replace YOUR_FORMSPREE_ENDPOINT_URL with your actual Formspree link -->
+            <form class="max-w-md mx-auto space-y-4 text-left" 
+                  action="YOUR_FORMSPREE_ENDPOINT_URL"
+                  method="POST">
                 <div>
                     <label class="text-sm text-slate-400 ml-1">Your Name</label>
-                    <input type="text" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="John Doe">
+                    <input type="text" name="name" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="John Doe">
                 </div>
                 <div>
                     <label class="text-sm text-slate-400 ml-1">Email Address</label>
-                    <input type="email" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
+                    <input type="email" name="_replyto" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="john@example.com">
                 </div>
                  <div>
                     <label class="text-sm text-slate-400 ml-1">Website (Optional)</label>
-                    <input type="text" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition" placeholder="www.yourbusiness.com">
+                    <input type="text" name="website" class="w-full bg-slate-900/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-500 outline-none transition" placeholder="www.yourbusiness.com">
                 </div>
                 
-                <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg shadow-lg shadow-blue-500/40 transform transition hover:-translate-y-1">
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg shadow-lg shadow-blue-500/40 transform transition hover:-translate-y-1">
                     Send Message
                 </button>
             </form>
@@ -410,10 +405,12 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="py-8 text-center border-t border-slate-800 text-slate-500 text-sm">
         <p>&copy; 2025 [Your Name]. Performance Marketing.</p>
     </footer>
 
+    <!-- Scripts (KEPT HERE because they interact with the DOM) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize Animate On Scroll
@@ -447,11 +444,14 @@
                         counter.innerText = Math.ceil(count + inc);
                         setTimeout(updateCount, 20);
                     } else {
-                        counter.innerText = target + (target === 100 || target === 40 || target === 12 ? '%' : '+'); 
                         // Small hack to append % or + based on context
-                        if(counter.parentElement.innerText.includes('CPC')) counter.innerText = target + '%';
-                        if(counter.parentElement.innerText.includes('CTR')) counter.innerText = target + '%';
-                        if(counter.parentElement.innerText.includes('Leads')) counter.innerText = target + '+';
+                        let suffix = '';
+                        if(counter.parentElement.innerText.includes('CPC')) suffix = '%';
+                        else if(counter.parentElement.innerText.includes('CTR')) suffix = '%';
+                        else if(counter.parentElement.innerText.includes('Leads')) suffix = '+';
+                        else if(target === 100) suffix = '%'; // for the "Data Driven" stat
+
+                        counter.innerText = target + suffix;
                     }
                 };
                 updateCount();
@@ -461,10 +461,13 @@
         // Trigger counters when scrolled into view
         let hasAnimated = false;
         window.addEventListener('scroll', () => {
-            const section = document.querySelector('.counter').getBoundingClientRect();
-            if(section.top < window.innerHeight && !hasAnimated) {
-                animateCounters();
-                hasAnimated = true;
+            const counterSection = document.querySelector('.counter')?.closest('section');
+            if (counterSection) {
+                const sectionRect = counterSection.getBoundingClientRect();
+                if(sectionRect.top < window.innerHeight - 100 && !hasAnimated) {
+                    animateCounters();
+                    hasAnimated = true;
+                }
             }
         });
     </script>
