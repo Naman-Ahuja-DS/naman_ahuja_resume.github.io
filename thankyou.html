@@ -1,108 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You | Message Received</title>
 
+    <!-- Tailwind & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                fontFamily: {
-                    sans: ['Outfit', 'sans-serif'],
-                },
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0f172a',
-                            accent: '#3b82f6',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in': 'fadeIn 1.2s ease forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        fadeIn: {
-                            '0%' : { opacity: 0, transform: 'translateY(20px)' },
-                            '100%': { opacity: 1, transform: 'translateY(0)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
         body {
-            background-color: #0f172a;
+            background: #0f172a;
             color: #f8fafc;
+            font-family: 'Outfit', sans-serif;
             overflow-x: hidden;
         }
+
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.3s ease;
+        }
+
         .blob {
             position: absolute;
             filter: blur(90px);
             opacity: 0.45;
-            z-index: -1;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body>
 
-    <!-- Background blobs -->
-    <div class="blob w-96 h-96 bg-blue-600 rounded-full top-10 left-10 animate-pulse"></div>
-    <div class="blob w-96 h-96 bg-purple-600 rounded-full bottom-10 right-10 animate-pulse" style="animation-delay:1.5s"></div>
+    <!-- Background Blobs -->
+    <div class="blob bg-blue-600 w-96 h-96 rounded-full top-10 left-10"></div>
+    <div class="blob bg-purple-600 w-96 h-96 rounded-full bottom-10 right-10"></div>
 
-    <!-- Main Container -->
-    <div class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+    <!-- MAIN CONTENT -->
+    <section class="min-h-screen flex items-center justify-center px-6 text-center relative z-10">
+        <div class="max-w-2xl glass-card p-10 rounded-3xl border border-blue-400/20 fade-in">
 
-        <!-- Icon -->
-        <div class="bg-blue-600/20 border border-blue-500/40 w-28 h-28 rounded-full flex items-center justify-center mb-8 animate-float shadow-xl shadow-blue-500/20">
-            <i class="fas fa-check text-5xl text-blue-400"></i>
+            <div class="text-6xl mb-6">🎉</div>
+
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+                Thank You!
+            </h1>
+
+            <p class="text-xl text-blue-300 font-semibold mb-6 gradient-text">
+                Your message has been successfully submitted.
+            </p>
+
+            <p class="text-slate-300 text-lg mb-10">
+                I’ll get back to you shortly.  
+                Meanwhile, feel free to connect with me on any of the platforms below.
+            </p>
+
+            <!-- BUTTONS -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+
+                <a href="https://api.whatsapp.com/send?phone=YOURNUMBER"
+                   class="px-8 py-4 bg-green-600 hover:bg-green-700 rounded-xl text-white font-bold text-lg shadow-lg shadow-green-500/40 transition">
+                    WhatsApp Me
+                </a>
+
+                <a href="index.html"
+                   class="px-8 py-4 border border-slate-600 hover:border-white rounded-xl text-white font-bold text-lg hover:bg-white/10 transition">
+                    Back to Homepage
+                </a>
+            </div>
+
+            <!-- SOCIAL ICONS -->
+            <div class="mt-10 flex justify-center space-x-6 text-slate-400">
+                <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-white transition text-2xl"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:your@email.com" class="hover:text-white transition text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- Title -->
-        <h1 class="text-5xl md:text-6xl font-extrabold gradient-text animate-fade-in" 
-        style="background: linear-gradient(to right, #60a5fa, #a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-            Thank You!
-        </h1>
-
-        <!-- Subtitle -->
-        <p class="text-xl text-slate-300 mt-6 max-w-2xl animate-fade-in" style="animation-delay:0.15s">
-            Your message has been received.  
-            I’ll get back to you shortly with a custom strategy based on your business.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-12 animate-fade-in" style="animation-delay:0.3s">
-
-            <!-- Back to Home -->
-            <a href="/" 
-               class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold rounded-xl shadow-lg shadow-blue-500/40 transition transform hover:-translate-y-1">
-                Back to Home
-            </a>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
-               class="px-8 py-4 border border-slate-600 hover:border-white text-white font-bold rounded-xl transition hover:bg-white/10">
-                Chat on WhatsApp
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <p class="text-slate-500 mt-16 text-sm animate-fade-in" style="animation-delay:0.5s">
-            &copy; 2025 [Your Name]. Performance Marketing.
-        </p>
-    </div>
+    <!-- OPTIONAL: GOOGLE ADS CONVERSION TRACKING -->
+    <!-- 
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXX/YYYYYY'
+        });
+    </script>
+    -->
 
 </body>
 </html>
